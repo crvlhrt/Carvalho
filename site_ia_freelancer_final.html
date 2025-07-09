@@ -1,0 +1,194 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Curso: Aprender a Lucrar com IA e Freelancer</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Montserrat', sans-serif;
+      margin: 0;
+      background: #f9fafb;
+      color: #222;
+      line-height: 1.6;
+    }
+    header {
+      background: #1e40af;
+      color: white;
+      padding: 30px 20px;
+      text-align: center;
+    }
+    header h1 {
+      margin: 0;
+      font-weight: 700;
+      font-size: 2.5rem;
+      letter-spacing: 1.5px;
+    }
+    .banner-container img {
+      width: 100%;
+      max-height: 250px;
+      object-fit: cover;
+      border-radius: 0 0 10px 10px;
+      filter: brightness(70%);
+    }
+    main {
+      max-width: 900px;
+      margin: 0 auto 40px;
+      padding: 0 20px;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    }
+    .intro {
+      text-align: center;
+      padding: 20px 10px;
+    }
+    .intro p {
+      font-size: 1.2rem;
+      margin-top: 10px;
+      color: #555;
+    }
+    .images-gallery {
+      display: flex;
+      gap: 15px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 20px;
+    }
+    .images-gallery img {
+      width: 150px;
+      height: 100px;
+      object-fit: cover;
+      border-radius: 8px;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+      cursor: pointer;
+    }
+    .images-gallery img:hover {
+      transform: scale(1.05);
+    }
+    .pricing {
+      text-align: center;
+      margin-top: 30px;
+      font-size: 1.6rem;
+    }
+    .old-price {
+      text-decoration: line-through;
+      color: #999;
+      font-size: 1.3rem;
+      margin-right: 15px;
+    }
+    .promo-price {
+      color: #dc2626;
+      font-weight: 700;
+      font-size: 2.2rem;
+    }
+    .countdown {
+      margin-top: 15px;
+      font-size: 1.2rem;
+      color: #555;
+    }
+    .countdown span {
+      font-weight: 700;
+      color: #1e40af;
+    }
+    .btn-buy {
+      display: block;
+      background: #1e40af;
+      color: white;
+      border: none;
+      padding: 15px 30px;
+      font-size: 1.3rem;
+      border-radius: 6px;
+      margin: 40px auto 40px;
+      max-width: 250px;
+      cursor: pointer;
+      text-align: center;
+      text-decoration: none;
+    }
+    .btn-buy:hover {
+      background: #374aae;
+    }
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #1e40af;
+      color: white;
+      font-size: 1rem;
+      border-radius: 0 0 10px 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="banner-container">
+      <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1200&q=80" alt="Banner sobre inteligência artificial" />
+    </div>
+    <h1>Curso: Aprender a Lucrar com IA e Freelancer</h1>
+  </header>
+
+  <main>
+    <section class="intro">
+      <p>Descubra como transformar seu conhecimento em dinheiro utilizando inteligência artificial e trabalhos freelancer. Aproveite a promoção especial!</p>
+    </section>
+
+    <section class="images-gallery">
+      <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=400&q=80" alt="Tela com códigos e dados" />
+      <img src="https://images.unsplash.com/photo-1515377905703-c4788e51af15?auto=format&fit=crop&w=400&q=80" alt="Reunião freelancer" />
+      <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=400&q=80" alt="Gráfico de crescimento" />
+      <img src="https://images.unsplash.com/photo-1547658719-da2b51169166?auto=format&fit=crop&w=400&q=80" alt="Pessoa digitando no laptop" />
+    </section>
+
+    <section class="pricing">
+      <span class="old-price">R$ 50,00</span>
+      <span class="promo-price">R$ 35,00</span>
+      <div class="countdown">
+        Promoção termina em: <span id="countdown-timer">--:--:--</span>
+      </div>
+    </section>
+
+    <a href="https://wa.me/553899679359?text=Tenho%20interesse%20no%20curso%20sobre%20lucrar%20com%20a%20intelig%C3%AAncia%20artificial%2C%20poderia%20passar%20mais%20informa%C3%A7%C3%B5es%3F" class="btn-buy" target="_blank" id="buyBtn">Comprar Agora</a>
+
+    
+  </main>
+
+  <footer>
+    &copy; 2025 Enzo Carvalho
+  </footer>
+
+  <script>
+    const countdownElement = document.getElementById('countdown-timer');
+    const promoEnd = Date.now() + 24 * 60 * 60 * 1000;
+
+    function updateCountdown() {
+      const now = Date.now();
+      const diff = promoEnd - now;
+
+      if (diff <= 0) {
+        countdownElement.textContent = 'Promoção encerrada';
+        document.querySelector('.promo-price').style.color = '#999';
+        const buyBtn = document.getElementById('buyBtn');
+        buyBtn.style.pointerEvents = 'none';
+        buyBtn.textContent = 'Promoção encerrada';
+        return;
+      }
+
+      const hours = Math.floor(diff / (1000 * 60 * 60));
+      const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+      countdownElement.textContent = `${String(hours).padStart(2,'0')}:${String(minutes).padStart(2,'0')}:${String(seconds).padStart(2,'0')}`;
+    }
+
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+  </script>
+</body>
+</html>
